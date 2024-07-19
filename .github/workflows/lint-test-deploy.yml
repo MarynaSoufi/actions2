@@ -1,0 +1,39 @@
+name: Lint Test Deploy
+on: push
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: npm install
+            - name: Lint
+              run: npm run lint
+            - name: Print action
+              run: echo "Linting complete"	  
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: npm install
+            - name: Test
+              run: npm test
+            - name: Print action
+              run: echo "Testing complete"        
+              
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: npm install
+            - name: Deploy
+              run: echo "Deploying to production"
+              env:
+                  ENV: production
+            - name: Print action
+              run: echo "Deployment complete"          
