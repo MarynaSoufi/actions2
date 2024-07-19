@@ -1,0 +1,8 @@
+name: Show Event info when issue created
+on: issues
+jobs:
+    show-event-info:
+                    runs-on: ubuntu-latest
+                    steps:
+                        - name: Show Event info
+                          run: echo "${{ toJSON(github)}}"
